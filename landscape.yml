@@ -1015,7 +1015,7 @@ categories:
             homepage_url: https://www.splunk.com/
             logo: splunk.svg
             repo_url: https://github.com/splunk
-            crunchbase: https://www.crunchbase.com/organization/splunk'
+            crunchbase: https://www.crunchbase.com/organization/splunk
             second_path:
               - "Security / Other"
             enduser: false 
