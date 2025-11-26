@@ -539,7 +539,7 @@ categories:
             description: Cybersecurity platform with eBPF-based network security and monitoring
             homepage_url: https://checkpoint.com
             logo: checkpoint.svg
-            repo_url: https://github.com/aviatrixsystems
+            repo_url: https://github.com/checkpointsw
             crunchbase: https://www.crunchbase.com/organization/check-point
             enduser: false 
             extra: 
