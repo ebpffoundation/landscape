@@ -850,7 +850,7 @@ categories:
               linkedin_url: https://linkedin.com/company/gigamon
               blog_url: https://blog.gigamon.com/
               tag: 
-                - runtime-security
+                - observability
           - name: Grafana
             description: Open source analytics and monitoring platform with eBPF-based profiling capabilities through Pyroscope integration for continuous profiling
             homepage_url: https://grafana.com
@@ -1292,8 +1292,6 @@ categories:
             logo: unvariance.svg
             repo_url: https://github.com/unvariance
             enduser: false 
-            extra: 
-              tag: 
   - name: End User
     subcategories: 
       - name: Other 
