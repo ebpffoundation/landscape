@@ -448,7 +448,7 @@ categories:
           - name: StackRox
             description: Kubernetes security platform with eBPF-based runtime protection
             homepage_url: https://stackrox.com
-            logo: stockrox.svg
+            logo: stackrox.svg
             repo_url: https://github.com/stackrox
             crunchbase: https://www.crunchbase.com/organization/stackrox
             enduser: false 
