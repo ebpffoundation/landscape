@@ -1,0 +1,1302 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/cncf/landscape2/refs/heads/main/docs/config/schema/data.schema.json
+
+# Landscape2 data
+#
+# This file contains the data that will be used to generate the landscape. The landscape data is a
+# collection of items organized into categories and subcategories.
+#
+# NOTE: to maintain backwards compatibility with the previous version of the landscape, the data
+# file used by v2 is based on the format used by v1. There are some extra fields not available in
+# v1, and it's likely that more will be added over time. Most of the fields supported by v1 should
+# also be supported by v2, although there might be some exceptions.
+
+# List of categories in the landscape (required) (this field can also be named `landscape`).
+# categories:
+#   - # Name of the category (required).
+#     name: My category
+
+#     # List of subcategories in this category (required).
+#     subcategories:
+#       - # Name of the subcategory (required).
+#         name: My subcategory
+
+#         # List of items in this subcategory (required).
+#         items:
+#           - # Name of the item (required).
+#             name: My item
+
+#             # Homepage URL (required).
+#             homepage_url: https://homepage.url
+
+#             # File name of the logo (required). The provided logo file is expected to be located in
+#             # the landscape logos path (i.e. `hosted-logos`). URLs are not supported, it must be a
+#             # file name. The logo file must be an SVG file.
+#             logo: logo.svg
+
+#             # Description of the item (optional). When the description is not provided, the primary
+#             # repository's description or the organization's description from Crunchbase will be
+#             # used (in that order). This description will be indexed to power the search feature.
+#             description: This is the description of item 1
+
+#             # Alternative `category / subcategory` where this item should be listed in (optional).
+#             # Sometimes we may want to list an item in multiple categories or subcategories. This
+#             # field allows specifying additional locations for an item without having to duplicate
+#             # it. It is possible to provide multiple entries, and the format is as follows:
+#             #
+#             # second_path:
+#             #   - "Category 2 / Subcategory 2-1"
+#             #   - "Category 3 / Subcategory 3-1"
+#             #
+#             # The alternative category or subcategory name must not contain a slash.
+#             second_path: []
+
+#             # Maturity of the project (optional). This field is only expected on items that
+#             # represent a project that belongs to the foundation. The maturity can be any string,
+#             # but there are some values that have a special meaning:
+#             #
+#             # - "graduated, incubating, sandbox": when used in combination with the date they moved
+#             #   to that state (set in `extra` field), a special progress bar will be displayed in
+#             #   the item's details view.
+#             #
+#             # - "archived": items in this state will be grayed out.
+#             project: "sandbox"
+
+#             # Date at which the member joined the foundation (optional). This field is only
+#             # expected on items that represent a foundation's member. The date should be a string
+#             # using the format 'YYYY-MM-DD'.
+#             joined: "2024-05-14"
+
+#             # URL of the primary repository (optional). Some extra information will be collected
+#             # for repositories hosted in GitHub.
+#             repo_url: https://github.com/owner/repo
+
+#             # Branch to use when collecting information for the primary repository (optional).
+#             branch: main
+
+#             # Primary repository license (optional). This information is usually collected from
+#             # GitHub, but it can be overridden here. The license must be a valid SPDX license
+#             # identifier (more info: https://spdx.org/licenses/).
+#             license: "Apache-2.0"
+
+#             # List of additional repositories (optional). The structure for each repository is as
+#             # follows:
+#             #
+#             # additional_repos:
+#             #   - # URL of the repository (required).
+#             #     repo_url: https://github.com/owner/repo
+#             #     # Branch to use when collecting information for the repository (optional).
+#             #     branch: main
+#             #     # Repository license (optional). This information is usually collected from
+#             #     # GitHub, but it can be overridden here. The license must be a valid SPDX license
+#             #     # identifier (more info: https://spdx.org/licenses/).
+#             #     license: "Apache-2.0"
+#             additional_repos: []
+
+#             # Crunchbase URL of the organization this item belongs to (optional).
+#             crunchbase: https://www.crunchbase.com/organization/my-organization
+
+#             # Twitter URL (optional).
+#             twitter: https://twitter.com/my-organization
+
+#             # OpenSSF best practices URL (optional).
+#             url_for_bestpractices: https://www.bestpractices.dev/en/projects/1234
+
+#             # Indicate if the item corresponds to an end user (optional). The value must be a
+#             # boolean.
+#             enduser: false
+
+#             # Extra information about the item (optional).
+#             extra:
+#               # Date at which the project was accepted in the foundation (optional). This field
+#               # is only expected on items that represent a foundation's project.
+#               # Format: 'YYYY-MM-DD'.
+#               accepted: "2024-05-14"
+
+#               # List of user-defined annotations (optional). Annotations can be used to add custom
+#               # metadata to landscape items. Annotations are not used by the landscape itself, but
+#               # they can be used by external tools that consume the landscape data. Both keys and
+#               # values are expected to be strings.
+#               annotations:
+#                 key1: value1
+#                 key2: value2
+
+#               # Date at which the project was archived (optional). This field is only expected on
+#               # items that represent a foundation's project. Format: 'YYYY-MM-DD'.
+#               archived: "2020-05-14"
+
+#               # List of security audits the project has undergone (optional). The structure for
+#               # each audit is as follows:
+#               #
+#               # audits:
+#               #   - # Date of the audit (required). Format: 'YYYY-MM-DD'.
+#               #     date: "2024-05-14"
+#               #     # Audit type (required).
+#               #     type: fuzzing
+#               #     # URL of the audit report (required).
+#               #     url: https://audit.report.url
+#               #     # Name of the vendor who did the audit (required).
+#               #     vendor: Vendor name
+#               audits: []
+
+#               # Date of the last annual review presented by this project (optional). This field
+#               # is only expected  on items that represent a foundation's project.
+#               # Format: 'YYYY-MM-DD'.
+#               annual_review_date: "2024-05-14"
+
+#               # URL of the last annual review presented by this project (optional). This field is
+#               # only expected on items that represent a foundation's project.
+#               annual_review_url: https://annual.review.url
+
+#               # Artwork URL (optional).
+#               artwork_url: https://artwork.url
+
+#               # Blog URL (optional).
+#               blog_url: https://blog.url
+
+#               # Bluesky URL (optional).
+#               bluesky_url: https://bsky.app/profile/you.com
+
+#               # Channel to discuss topics related to this item (optional).
+#               chat_channel: "#channel"
+
+#               # The name of a project listed in CLOMonitor that matches this item (optional).
+#               # This reference is used to pull the CLOMonitor report for this item and display it
+#               # in the item's details view. CLOMonitor is only enabled for a small number of
+#               # foundations, so this field won't be used in most cases. 
+#               clomonitor_name: "project-name"
+
+#               # Dev stats URL (optional).
+#               dev_stats_url: https://dev.stats.url
+
+#               # Discord URL (optional).
+#               discord_url: https://discord.url
+
+#               # Docker URL (optional).
+#               docker_url: https://docker.url
+
+#               # Documentation URL (optional).
+#               documentation_url: https://documentation.url
+
+#               # Facebook URL (optional).
+#               facebook_url: https://facebook.com/url
+
+#               # GitHub discussions URL (optional).
+#               github_discussions_url: https://github.discussions.url
+
+#               # Gitter URL (optional).
+#               gitter_url: https://gitter.url
+
+#               # Date at which the project moved to graduated (optional). Format: 'YYYY-MM-DD'.
+#               # This field is only expected on items that represent a foundation's project, and
+#               # should only be used when adhering to the graduated/incubating/sandbox maturities.
+#               graduated: "2024-05-14"
+
+#               # Date at which the project moved to incubating (optional). Format: 'YYYY-MM-DD'.
+#               # This field is only expected on items that represent a foundation's project, and
+#               # should only be used when adhering to the graduated/incubating/sandbox maturities.
+#               incubating: "2024-05-14"
+
+#               # LFX slug (optional). This value should match the slug used by LFX to reference
+#               # the project, so external integrations can link both records together.
+#               lfx_slug: "my-project"
+
+#               # LinkedIn URL (optional).
+#               linkedin_url: "https://linkedin.com/url"
+
+#               # Mailing list URL (optional).
+#               mailing_list_url: "https://mailing.list.url"
+
+#               # List of links to feature in the item's details view (optional). The structure for
+#               # each link is as follows:
+#               #
+#               # other_links:
+#               #   - # Name of the link (required).
+#               #     name: Link name
+#               #     # URL of the link (required).
+#               #     url: https://link.url
+#               other_links: []
+
+#               # Package manager URL (optional). Link to the package manager where the item is
+#               # available.
+#               package_manager_url: https://package.manager.url/my-item
+
+#               # Name of the parent project (optional). The parent of a project will be
+#               # highlighted in the item's details view. The parent project must be listed in the
+#               # landscape and the name must match exactly.
+#               parent_project: "Project name"
+
+#               # Pinterest URL (optional).
+#               pinterest_url: https://pinterest.com/url
+
+#               # Reddit URL (optional).
+#               reddit_url: https://reddit.com/url
+
+#               # Slack URL (optional).
+#               slack_url: https://slack.url
+
+#               # Indicate whether this item is a specification (optional). The value must be a
+#               # boolean.
+#               specification: false
+
+#               # Stack Overflow URL (optional).
+#               stack_overflow_url: https://stackoverflow.com/url
+
+#               # Description of the business use case (optional).
+#               # More info: https://github.com/cncf/landscape/blob/master/docs/item_summary.md
+#               summary_business_use_case: "Reduce operational risks associated with software supply chain"
+
+#               # Comma separated list of other projects this item integrates with (optional).
+#               # More info: https://github.com/cncf/landscape/blob/master/docs/item_summary.md
+#               summary_integration: "Project 1, Project 2"
+
+#               # Alternative field for `summary_integration` (optional).
+#               # More info: https://github.com/cncf/landscape/blob/master/docs/item_summary.md
+#               summary_integrations: "Project 1, Project 2"
+
+#               # Video URL of the item's pitch (optional).
+#               # More info: https://github.com/cncf/landscape/blob/master/docs/item_summary.md
+#               summary_intro_url: https://summary.intro.url
+
+#               # List of target users this item is intended for (optional). Entries must be
+#               # separated by commas
+#               # More info: https://github.com/cncf/landscape/blob/master/docs/item_summary.md
+#               summary_personas: "Cloud Architects, Platform Engineers"
+
+#               # Describes how often a new version of the item is released (optional).
+#               # More info: https://github.com/cncf/landscape/blob/master/docs/item_summary.md
+#               summary_release_rate: "Every 3 months"
+
+#               # Keywords that describe the item (optional). The keywords must be separated by
+#               # commas. These keywords will be indexed to power the search feature.
+#               # More info: https://github.com/cncf/landscape/blob/master/docs/item_summary.md
+#               summary_tags: "security, networking, cloud"
+
+#               # Description of the technical problem this item solves (optional).
+#               # More info: https://github.com/cncf/landscape/blob/master/docs/item_summary.md
+#               summary_use_case: "Provides security for the software supply chain"
+
+#               # Technical Advisory Groups (TAG) this item is associated to (optional). When the
+#               # automatic TAG mapping feature is enabled in the landscape settings, the TAG names
+#               # used here must match exactly any of the TAGs listed in the landscape settings
+#               # (provided it refers to the same TAG).
+#               tag:
+#                 - security
+
+#               # YouTube URL (optional).
+#               youtube_url: https://youtube.com/url
+
+
+categories:
+  - name: Security 
+    subcategories:
+      - name: Runtime Security
+        items:
+          - name: AccuKnox
+            description: Effortless, Low-Overhead, eBPF-based Kubernetes Monitoring
+            homepage_url: https://accuknox.com
+            logo: accuknox.svg
+            repo_url: https://github.com/accuknox
+            crunchbase: https://www.crunchbase.com/organization/accuknox
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/accuknox
+              blog_url: https://accuknox.com/blog
+              tag:
+                - security 
+          - name: Aqua Security
+            description: Cloud-native security platform with eBPF-based runtime protection
+            homepage_url: https://aquasec.com
+            logo: aquasec.svg
+            repo_url: https://github.com/aquasecurity
+            crunchbase: https://www.crunchbase.com/organization/aquasecurity
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/aqua-security
+              blog_url: https://www.aquasec.com/blog/
+              tag: 
+                - runtime-security 
+          - name: aurva
+            description: eBPF-based runtime security and threat detection platform
+            homepage_url: https://aurva.com
+            logo: aurva.svg
+            repo_url: https://github.com/aurva
+            crunchbase: https://www.crunchbase.com/organization/aurva
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/aurva
+              blog_url: https://aurva.io/blog
+              tag: 
+                - runtime-security 
+          - name: ARMO
+            description: Kubernetes security platform with eBPF-based runtime monitoring
+            homepage_url: https://armosec.io
+            logo: armo.svg 
+            repo_url: https://github.com/armosec
+            crunchbase: https://www.crunchbase.com/organization/cyber-armor
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/armosec
+              blog_url:
+              tag: 
+                - runtime-security 
+          - name: Cmd
+            description: Linux security platform using eBPF for real-time process monitoring, threat detection, and security enforcement
+            homepage_url: https://build.security/
+            logo: cmd.svg
+            crunchbase: https://www.crunchbase.com/organization/build-security
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/build-security/
+              tag: 
+                - runtime-security
+          - name: Garnet Labs 
+            description: Runtime threat protection for Kubernetes workloads using an eBPF-based agent (Jibril) to detect and block malicious network, file, and execution behaviors
+            homepage_url: https://www.garnet.ai/
+            logo: garnet.svg
+            repo_url: https://github.com/garnet-org
+            crunchbase: https://www.crunchbase.com/organization/garnet-labs
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/garnetlabs/
+              tag: 
+                - runtime-security
+          - name: Invary
+            description: eBPF-based runtime security and threat detection platform
+            homepage_url: https://www.invary.com/
+            logo: invary.svg
+            repo_url: https://github.com/invary
+            crunchbase: https://www.crunchbase.com/organization/invary
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/invary/
+              tag: 
+                - runtime-security
+          - name: Levo AI 
+            description: AI-powered security platform with eBPF-based monitoring
+            homepage_url: https://levo.ai
+            logo: levo-ai.svg
+            repo_url: https://github.com/levo-ai
+            crunchbase: https://www.crunchbase.com/organization/levo-ai
+            enduser: false 
+            second_path:
+              - "Security / Application Security"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/levo-inc/
+              blog_url: https://www.levo.ai/resources/blogs
+              tag: 
+                - runtime-security
+                - application-security
+          - name: Nyx Software Security Solutions
+            description: Runtime security company using eBPF-based function-level instrumentation to detect which application functions are executed and enable precise threat detection
+            homepage_url: https://www.nyxsecuritysolutions.com/
+            logo: nyx.svg
+            crunchbase: https://www.crunchbase.com/organization/nyx-security
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/nyx-software-security-solutions/about/
+              tag: 
+                - runtime-security
+          - name: Oligo Security
+            description: Runtime security platform with eBPF-based monitoring that delivers active protection across applications, cloud, workloads, and AI
+            homepage_url: https://oligo.security
+            logo: oligo.svg
+            repo_url: https://github.com/oligo
+            crunchbase: https://www.crunchbase.com/organization/oligo-security
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/oligo-security/
+              blog_url: https://oligo.security/resources/blog
+              tag: 
+                - runtime-security
+          - name: Orca Security
+            description: Cloud security company using an eBPF-based sensor for runtime visibility, protection, and dynamic reachability analysis across multi-cloud and hybrid environments
+            homepage_url: https://orca.security/
+            logo: orca.svg
+            repo_url: https://github.com/orcasecurity
+            crunchbase: https://www.crunchbase.com/organization/orca-security
+            enduser: true
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/orca-security
+              blog_url: https://orca.security/resources/blog/
+              tag: 
+                - runtime-security
+          - name: Otterize
+            description: Workload identity and access management platform using eBPF for visibility into data flows and intent-based access control in Kubernetes environments
+            homepage_url: https://www.otterize.com/
+            logo: otterize.svg
+            repo_url: https://github.com/otterize
+            crunchbase: https://www.crunchbase.com/organization/otterize
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/otterize/
+              tag: 
+                - runtime-security
+          - name: Rad Security
+            description: eBPF-based runtime security and threat detection platform
+            homepage_url: https://rad.security
+            logo: rad-security.svg
+            repo_url: https://github.com/rad-security
+            crunchbase: https://www.crunchbase.com/organization/ksoc-labs-inc
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/radsecurity/posts/?feedView=all
+              blog_url: https://www.radsecurity.ai/blog
+              tag: 
+                - runtime-security
+          - name: StackRox
+            description: Kubernetes security platform with eBPF-based runtime protection
+            homepage_url: https://stackrox.com
+            logo: stockrox.svg
+            repo_url: https://github.com/stackrox
+            crunchbase: https://www.crunchbase.com/organization/stackrox
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/stackrox
+              tag: 
+                - runtime-security
+                - kubernetes
+          - name: SUSE
+            description: Enterprise Linux and cloud-native platform using eBPF for kernel-level observability, performance monitoring, and security enforcement across SUSE Linux Enterprise and Rancher environments
+            homepage_url: https://www.suse.com/
+            logo: suse.svg
+            repo_url: https://github.com/suse
+            crunchbase: https://www.crunchbase.com/organization/suse
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/suse/
+              blog_url: https://www.suse.com/c/blog/
+              tag: 
+                - runtime-security
+          - name: Sysdig
+            description: Cloud-native security and observability platform with eBPF-based monitoring
+            homepage_url: https://sysdig.com
+            logo: sysdig.svg
+            repo_url: https://github.com/sysdiglabs
+            crunchbase: https://www.crunchbase.com/organization/sysdig
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/sysdig
+              blog_url: https://www.sysdig.com/blog
+              tag: 
+                - runtime-security
+      - name: Cloud Workload Protection
+        items: 
+          - name:  Aviatrix
+            description: Cloud workload protection platform with eBPF-based monitoring
+            homepage_url: https://aviatrix.com
+            logo: aviatrix.svg
+            repo_url: https://github.com/aviatrixsystems
+            crunchbase: https://www.crunchbase.com/organization/aviatrix
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/aviatrix
+              blog_url: https://aviatrix.ai/blog/
+              tag: 
+                - cloud-workload-protection-platform
+          - name: Sweet Security
+            description: eBPF-based runtime security and threat detection platform
+            homepage_url: https://sweet.security
+            logo: sweet-security.svg
+            repo_url: https://github.com/sweet-security
+            crunchbase: https://www.crunchbase.com/organization/sweet-security
+            second_path:
+              - "Security / Runtime Security"
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/sweet-security/
+              blog_url: https://www.sweet.security/blog
+              tag: 
+                - runtime-security
+                - cloud-workload-protection-platform
+          - name: Upwind Security
+            description: Cloud security platform with eBPF-based runtime protection
+            homepage_url: https://upwind.io
+            logo: upwind-security.svg
+            repo_url: https://github.com/upwind
+            crunchbase: https://www.crunchbase.com/organization/upwind-security
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/upwindsecurity/
+              tag: 
+                - runtime-security
+                - cloud-workload-protection-platform
+          - name: Wiz
+            description: Cloud security platform with eBPF-based runtime monitoring
+            homepage_url: https://wiz.io
+            logo: wiz.svg
+            repo_url: https://github.com/wiz
+            crunchbase: https://www.crunchbase.com/organization/wiz-inc
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/wiz
+              blog_url: https://www.wiz.io/blog
+              tag: 
+                - runtime-security
+                - cloud-workload-protection-platform
+          - name:  Check Point
+            description: Cybersecurity platform with eBPF-based network security and monitoring
+            homepage_url: https://checkpoint.com
+            logo: checkpoint.svg
+            repo_url: https://github.com/aviatrixsystems
+            crunchbase: https://www.crunchbase.com/organization/check-point
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/check-point-software-technologies
+              blog_url: https://blog.checkpoint.com/
+              tag: 
+                - cloud-workload-protection-platform
+    
+      - name: Application Security 
+        items: 
+          - name: Cycode 
+            description: Application security platform with eBPF-based runtime protection
+            homepage_url: https://cycode.com
+            logo: cycode.svg 
+            repo_url: https://github.com/cycode
+            crunchbase: https://www.crunchbase.com/organization/cycode
+            enduser: false 
+            extra:
+              linkedin_url: https://linkedin.com/company/cycode
+              blog_url: https://cycode.com/blog/
+              tag:
+                - application-security
+          - name: Kodem
+            description: Kodem is an application security company that uses eBPF to observe running code in real time, detecting, prioritizing, and defending against vulnerabilities based on how they actually execute in production
+            homepage_url: https://www.kodemsecurity.com/
+            logo: kodem.svg
+            repo_url: https://github.com/kodemsec
+            crunchbase:  https://www.crunchbase.com/organization/kodem-security
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/kodem/?originalSubdomain=il
+              blog_url: https://www.kodemsecurity.com/resources
+              tag: 
+                - application-security
+          - name: Miggo Security
+            description: Application Detection & Response (ADR) platform using eBPF-powered sensors to gain runtime visibility, detect, and respond to threats in live applications
+            homepage_url: https://www.miggo.io/
+            logo: miggo.svg
+            crunchbase: https://www.crunchbase.com/organization/miggo-security 
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/miggo-security
+              blog_url: https://www.miggo.io/blog
+              tag: 
+                - application-security
+          - name: Snyk
+            description: Developer-first security platform with eBPF-based runtime monitoring
+            homepage_url: https://snyk.io
+            logo: snyk.svg
+            repo_url: https://github.com/snyk
+            crunchbase: https://www.crunchbase.com/organization/snyk
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/snyk
+              blog_url: https://snyk.io/blog/
+              tag: 
+                - application-security
+      - name: Endpoint Detection and Response
+        items: 
+          - name: CrowdStrike
+            description: Falcon platform leveraging eBPF for cloud workload telemetry and data-in-motion analysis to power real-time threat detection and response across containerized and cloud environments
+            homepage_url: https://www.crowdstrike.com/
+            logo: crowdstrike.svg 
+            repo_url: https://github.com/CrowdStrike
+            second_path: 
+              - "Security / Cloud Workload Protection" 
+            crunchbase: https://www.crunchbase.com/organization/crowdstrike
+            enduser: false 
+            extra:
+              linkedin_url: https://www.linkedin.com/company/crowdstrike/
+              blog_url: https://crowdstrike.com/en-us/blog/
+              tag:
+                - endpoint-detection-and-response
+                - cloud-workload-protection-platform
+          - name: Red Canary
+            description: Managed detection and response platform with eBPF-based monitoring
+            homepage_url: https://redcanary.com
+            logo: red-canary.svg
+            repo_url: https://github.com/redcanaryco
+            crunchbase: https://www.crunchbase.com/organization/red-canary 
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/red-canary
+              blog_url: https://redcanary.com/resources-center/category/blog/
+              tag: 
+                - runtime-security
+          - name: SentinelOne
+            description: AI-powered endpoint security platform with eBPF-based runtime protection
+            homepage_url: https://sentinelone.com
+            logo: sentinelone.svg
+            repo_url: https://github.com/Sentinel-One 
+            crunchbase: https://www.crunchbase.com/organization/sentinel
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/sentinelone
+              blog_url: https://www.sentinelone.com/blog/
+              tag: 
+                - endpoint-detection-and-response
+      - name: Other
+        items:
+          - name: Cyera
+            description: Cloud data security platform expanding into eBPF-powered runtime data-flow visibility and workload access control through its Otterize acquisition
+            homepage_url: https://www.cyera.com/
+            logo: cyera.svg 
+            repo_url: https://github.com/cyeragit
+            second_path: 
+              - "Security / Cloud Workload Protection" 
+            crunchbase: https://www.crunchbase.com/organization/cyera
+            enduser: false 
+            extra:
+              linkedin_url: https://www.linkedin.com/company/cyera/
+              blog_url: https://www.cyera.com/blog
+              tag:
+                - cloud-workload-protection-platform
+          - name: Exein
+            description: IoT security platform with eBPF-based runtime protection
+            homepage_url: https://exein.io
+            logo: exein.svg
+            repo_url: https://github.com/exein-io
+            crunchbase: https://www.crunchbase.com/organization/exein
+            second_path:
+              - "Security / Runtime Security"
+            extra:
+              linkedin_url: https://linkedin.com/company/exein
+              blog_url: https://www.exein.io/blog
+              tag: 
+                - internet-of-things
+          - name: Flow Security
+            description: Data security platform using eBPF for real-time data flow monitoring and protection across cloud environments
+            homepage_url: https://flowsecurity.com
+            logo: flow-security.svg 
+            repo_url: https://github.com/flow-security
+            crunchbase: https://www.crunchbase.com/organization/flow-security
+            extra:
+              linkedin_url: https://www.linkedin.com/company/flow-security
+          - name: Flowmill
+            description: eBPF-based network security and monitoring platform
+            homepage_url: https://flowmill.com
+            repo_url: https://github.com/flowmill
+            logo: flowmill.svg
+            crunchbase: https://www.crunchbase.com/organization/flowmill
+          - name: Helios
+            description: eBPF-based runtime security and observability platform
+            homepage_url: https://helios.security
+            repo_url: https://github.com/helios
+            logo: helios.svg
+            crunchbase: https://www.crunchbase.com/organization/helios-e9ff
+          - name: Uptycs
+            description: Unified security and compliance platform with eBPF-based monitoring
+            homepage_url: https://uptycs.com
+            logo: uptycs.svg
+            repo_url: https://github.com/Uptycs
+            crunchbase: https://www.crunchbase.com/organization/uptycs
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/uptycs
+              tag: 
+                - compliance
+          - name: Zero Networks
+            description: Agentless microsegmentation platform securing on-prem, cloud and IoT assets using automated traffic-learning and zero-trust enforcement
+            homepage_url: https://zeronetworks.com/
+            logo: zero-networks.svg
+            repo_url: https://github.com/zeronetworks
+            crunchbase:  https://www.crunchbase.com/organization/zero-networks
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/zeronetworks
+              tag: 
+                - microsegmentation
+  
+                    
+  - name: Observability
+    subcategories:
+      - name: API Observability
+        items:
+          - name: Akita
+            description: API observability platform using eBPF for automatic API discovery, monitoring, and security analysis without code changes
+            homepage_url: https://akitasoftware.com
+            logo: akita.svg 
+            repo_url: https://github.com/akitasoftware
+            crunchbase: https://www.crunchbase.com/organization/akita-software
+            enduser: false 
+            extra:
+              linkedin_url: https://www.linkedin.com/company/akita-software
+              blog_url: https://akitasoftware.com/blog
+              tag:
+                - observability
+          - name: Postman
+            description: API platform that leverages eBPF to monitor API traffic, infer endpoint structures, and analyze data flows without changing application code
+            homepage_url: https://www.postman.com/
+            logo: postman.svg
+            repo_url: https://github.com/postmanlabs
+            crunchbase: https://www.crunchbase.com/organization/postman
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/postman-platform/
+              blog_url: https://blog.postman.com/
+              tag: 
+                - observability
+          - name: Seekret
+            description: API observability platform using eBPF for comprehensive API monitoring, security analysis, and performance optimization
+            homepage_url: https://seekret.io
+            logo: seekret.svg
+            repo_url: https://github.com/seekret
+            crunchbase: https://www.crunchbase.com/organization/seekret
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/seekret
+              blog_url: https://seekret.io/blog
+              tag: 
+                - observability
+          - name: Traceable
+            description: API security and observability platform with eBPF-based monitoring
+            homepage_url: https://traceable.ai
+            logo: traceable.svg
+            repo_url: https://github.com/traceableai
+            crunchbase: https://www.crunchbase.com/organization/traceable
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/traceable-ai
+              blog_url: https://www.traceable.ai/blog
+              tag: 
+                - observability
+                - application-security
+      - name: FinOps
+        items:
+          - name: Attribute (Attrb.io)
+            description: Cloud cost management platform using a proprietary eBPF sensor to capture application-layer data and enable cost attribution without tagging
+            homepage_url: https://attrb.io/
+            logo: attrib.svg
+            crunchbase: https://www.crunchbase.com/organization/zouz
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/attrb/
+              tag: 
+                - observability 
+                - fin-ops 
+      - name: Other 
+        items:
+          - name: Canopus Networks
+            description: Network observability platform using eBPF for deep packet inspection and network performance monitoring in cloud-native environments
+            homepage_url: https://www.canopusnetworks.com
+            logo: canopus-networks.svg
+            crunchbase: https://www.crunchbase.com/organization/canopus-networks
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/canopus-networks
+              tag: 
+                - observability 
+          - name: Coralogix
+            description: Observability platform using eBPF-based auto-instrumentation for Kubernetes workloads to capture traces, logs, and metrics without code changes
+            homepage_url: https://coralogix.com/
+            logo: coralogix.svg
+            crunchbase: https://www.crunchbase.com/organization/coralogix
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/coralogix/
+              tag: 
+                - observability 
+          - name: Coroot
+            description: eBPF-based application performance monitoring and profiling platform that provides AI/ML root cause analysis
+            homepage_url: https://coroot.com
+            repo_url: https://github.com/coroot
+            logo: coroot.svg
+            crunchbase: https://www.crunchbase.com/organization/coroot
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/coroot
+              blog_url: https://coroot.com/blog
+              tag: 
+                - observability 
+          - name: Datadog
+            description: eBPF-based application performance monitoring and profiling platform that provides AI/ML root cause analysis
+            homepage_url: https://datadoghq.com
+            repo_url: https://github.com/DataDog
+            logo: datadog.svg
+            crunchbase: https://www.crunchbase.com/organization/datadog
+            second_path:
+              - 'Security / Cloud Workload Protection'
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/datadog
+              blog_url: https://www.datadoghq.com/blog/
+              tag: 
+                - observability 
+          - name: Elastic
+            description: Search and observability platform using eBPF-based continuous profiling and runtime security agents to unify logs, metrics, traces, and profiling for cloud-native systems
+            homepage_url: https://www.elastic.co/
+            repo_url: https://github.com/elastic
+            logo: elastic.svg
+            crunchbase: https://www.crunchbase.com/organization/elasticsearch
+            second_path:
+              - 'Security / Cloud Workload Protection'
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/elastic/
+              blog_url: https://www.elastic.co/blog
+              tag: 
+                - observability 
+          - name: Gigamon 
+            description: Network visibility and analytics platform with eBPF-based traffic monitoring
+            homepage_url: https://gigamon.com
+            logo: gigamon.svg
+            repo_url: https://github.com/gigamon
+            crunchbase: https://www.crunchbase.com/organization/gigamon
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/gigamon
+              blog_url: https://blog.gigamon.com/
+              tag: 
+                - runtime-security
+          - name: Grafana
+            description: Open source analytics and monitoring platform with eBPF-based profiling capabilities through Pyroscope integration for continuous profiling
+            homepage_url: https://grafana.com
+            logo: grafana.svg
+            repo_url: https://github.com/grafana
+            crunchbase: https://www.crunchbase.com/organization/grafana-labs
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/grafana-labs
+              blog_url: https://grafana.com/blog
+              tag: 
+                - observability
+          - name: Groundcover
+            description: eBPF-based observability platform for cloud-native applications
+            homepage_url: https://groundcover.com
+            logo: groundcover.svg
+            crunchbase: https://www.crunchbase.com/organization/groundcover
+            repo_url: https://github.com/groundcover-com
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/groundcover-com/
+              blog_url: https://www.groundcover.com/blog
+              tag: 
+                - observability
+          - name: Kentik 
+            description: Network observability platform with eBPF-based traffic analysis
+            homepage_url: https://kentik.com
+            logo: kentik.svg
+            repo_url: https://github.com/kentik/
+            crunchbase: https://www.crunchbase.com/organization/kentik
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/kentik
+              blog_url: https://www.kentik.com/blog/
+              tag: 
+                - network-observability
+          - name: Kinvolk
+            description: Open-source infrastructure company behind Inspektor Gadget, an eBPF-based inspection and observability toolkit for Kubernetes and cloud-native systems
+            homepage_url: https://kinvolk.io/
+            logo: kinvolk.svg
+            repo_url: https://github.com/kinvolk
+            crunchbase: https://www.crunchbase.com/organization/kinvolk-gmbh
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/kinvolk/
+              blog_url: https://kinvolk.io/blog
+              tag: 
+                - observability
+                - kubernetes
+          - name: MantisNet
+            description: Network observability and analytics platform with eBPF integration
+            homepage_url: https://mantisnet.com
+            logo: mantisnet.svg
+            repo_url: https://github.com/mimetrix
+            crunchbase: https://www.crunchbase.com/organization/mantis-networks
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/mantisnet
+              blog_url: https://www.mantisnet.com/blog
+              tag: 
+                - network-observability
+          - name: Netscout Systems
+            description: Observability and network performance platform using eBPF-based sensors (KlearSight) to extract and analyze packet/context data in Kubernetes and cloud environments
+            homepage_url: https://www.netscout.com/
+            logo: netscout.svg
+            repo_url: https://github.com/netscout
+            crunchbase: https://www.crunchbase.com/organization/netscout-systems
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/netscout/
+              blog_url: https://www.netscout.com/blog
+              tag: 
+                - observability
+                - kubernetes
+          - name: Odigos
+            description: Uses eBPF to auto-generate OpenTelemetry traces with low overhead for services without manual instrumentation
+            homepage_url: https://odigos.io
+            logo: odigos.svg
+            repo_url: https://github.com/odigos-io/odigos
+            crunchbase: https://www.crunchbase.com/organization/keyval
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/odigoss/
+              blog_url: https://odigos.io/blog
+              tag: 
+                - tracing
+          - name: Optimyze
+            description: Performance optimization platform leveraging eBPF for continuous profiling and performance analysis to help developers identify and fix performance issues
+            homepage_url: https://optimyze.com
+            logo: optimyze.svg
+            repo_url: https://github.com/optimyze
+            crunchbase: https://www.crunchbase.com/organization/optimyze
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/optimyze
+              blog_url: https://optimyze.com/blog
+              tag: 
+                - continuous-profiling
+          - name: Pixie
+            description: Open source observability platform for Kubernetes using eBPF for automatic instrumentation and real-time debugging of applications
+            homepage_url: https://pixielabs.ai
+            logo: pixie.svg
+            repo_url: https://github.com/pixie-io/pixie
+            crunchbase: https://www.crunchbase.com/organization/pixie-labs
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/pixie-labs
+              blog_url: https://blog.pixielabs.ai
+              tag: 
+                - observability
+                - instrumentation
+          - name: Polar Signals
+            description: Continuous profiling platform for production systems using eBPF-based profiling to identify performance bottlenecks and optimize application performance
+            homepage_url: https://www.polarsignals.com
+            logo: polar-signals.svg
+            repo_url: https://github.com/polarsignals
+            crunchbase: https://www.crunchbase.com/organization/polar-signals
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/polar-signals
+              blog_url: https://www.polarsignals.com/blog
+              tag: 
+                - continuous-profiling
+          - name: Pyroscope
+            description: Continuous profiling platform using eBPF (and language-specific agents) to collect low-overhead stack traces and surface application performance insights
+            homepage_url: https://pyroscope.io/
+            logo: pyroscope.svg
+            repo_url: https://github.com/grafana/pyroscope
+            crunchbase: https://www.crunchbase.com/organization/pyroscope
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/pyroscope/
+              tag: 
+                - continuous-profiling
+                - observability
+          - name: Qpoint 
+            description: eBPF-based network observability and performance monitoring
+            homepage_url: https://qpoint.io
+            logo: qpoint.svg
+            repo_url: https://github.com/qpoint-io
+            crunchbase: https://www.crunchbase.com/organization/qpoint-bc30
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/qpoint-io/
+              blog_url: https://qpoint.io/blog/
+              tag: 
+                - observability
+          - name: Red Hat
+            description: Enterprise Linux and cloud solutions with eBPF-based observability tools
+            homepage_url: https://redhat.com
+            logo: redhat.svg
+            repo_url: https://github.com/redhat
+            crunchbase: https://www.crunchbase.com/organization/red-hat
+            enduser: false 
+            extra: 
+              linkedin_url: https://linkedin.com/company/red-hat
+              blog_url: https://www.redhat.com/en/blog
+              tag: 
+                - observability
+          - name: Splunk
+            description: Observability platform using eBPF to collect high-fidelity network, system, and application telemetry for real-time performance and security insights
+            homepage_url: https://www.splunk.com/
+            logo: splunk.svg
+            repo_url: https://github.com/splunk
+            crunchbase: https://www.crunchbase.com/organization/splunk'
+            second_path:
+              - "Security / Other"
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/splunk/
+              blog_url: https://www.splunk.com/en_us/blog
+              tag: 
+                - security-information-and-event-management
+          - name:  yeet.cx
+            description: eBPF-based performance profiling and observability platform for modern applications
+            homepage_url: https://yeet.cx
+            logo: yeet.svg
+            repo_url: https://github.com/yeet-cx
+            enduser: false 
+          - name: Zymtrace 
+            description: Continuous profiling platform using eBPF to provide deep, actionable visibility into CPU and GPU workloads
+            homepage_url: https://zymtrace.com/
+            logo: zymtrace.svg
+            repo_url: https://github.com/zystem-io
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/zymtraceai/
+              blog_url: https://zymtrace.com/blog/
+              tag: 
+                - continuous-profiling
+  - name: Networking 
+    subcategories: 
+      - name: Cloud Infrastructure 
+        items:
+          - name: Alibaba 
+            description: Cloud and e-commerce platform using eBPF for large-scale observability, network performance optimization, and real-time security monitoring across its cloud infrastructure
+            homepage_url: https://www.alibaba.com/
+            logo: alibaba.svg
+            repo_url: https://github.com/ALIBABA
+            crunchbase: https://www.crunchbase.com/organization/alibaba
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/alibaba-com/
+              blog_url:  https://alibabacloud.home.blog/
+              tag:
+                - networking 
+                - cloud-infrastructure-provider 
+          - name: Amazon Web Services
+            description: Cloud infrastructure and security platform leveraging eBPF for real-time observability, threat detection, and performance monitoring across managed services
+            homepage_url: https://aws.amazon.com/
+            logo: aws.svg
+            repo_url: https://github.com/aws
+            crunchbase: https://www.crunchbase.com/organization/amazon-web-services
+            enduser: true
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/amazon-web-services/
+              blog_url: https://aws.amazon.com/blogs/
+              tag: 
+                - networking
+                - cloud-infrastructure-provider 
+          - name: Bytedance
+            description: Cloud and content platform using eBPF for high-performance observability, network optimization, and real-time security monitoring across large-scale production systems
+            homepage_url: https://www.bytedance.com/
+            logo: bytedance.svg
+            repo_url: https://github.com/bytedanc
+            crunchbase: https://www.crunchbase.com/organization/bytedance
+            enduser: true
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/bytedance/
+              blog_url:
+              tag: 
+                - networking   
+                - cloud-infrastructure-provider 
+          - name: Google 
+            description: Infrastructure and cloud services provider using eBPF for packet processing, security auditing, and performance monitoring
+            homepage_url: https://www.google.com/
+            logo: google.svg
+            repo_url: https://github.com/google
+            second_path: 
+              - "Observability / Other" 
+              - "Security / Other" 
+            crunchbase: https://www.crunchbase.com/organization/google
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/google/
+              blog_url: https://blog.google/
+              tag: 
+                - networking
+                - cloud-infrastructure-provider 
+          - name: Microsoft 
+            description: Microsoft is a software corporation that develops, manufactures, licenses, supports, and sells a range of software products and services
+            homepage_url: https://www.microsoft.com/
+            logo: microsoft.svg
+            repo_url: https://github.com/microsoft/ebpf-for-windows
+            second_path:
+              - "Observability / Other"
+              - "Security / Other"
+            crunchbase: https://www.crunchbase.com/organization/microsoft
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/microsoft/
+              blog_url: https://blogs.microsoft.com/
+              tag: 
+                - cloud-infrastructure-provider
+          - name: Oracle
+            description: Database and cloud services
+            homepage_url: https://www.oracle.com/
+            logo: oracle.svg
+            repo_url: https://github.com/oracle
+            crunchbase: https://www.crunchbase.com/organization/oracle
+            enduser: true 
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/oracle/
+              blog_url: https://blogs.oracle.com/
+              tag: 
+                - cloud-infrastructure-provider
+      - name: Others
+        items:
+          - name: Intel
+            description: Hardware and infrastructure firm leveraging eBPF and XDP offload for high-performance packet processing, telemetry, and kernel-level observability across Linux network drivers
+            homepage_url: https://www.intel.com/
+            logo: intel.svg
+            repo_url: https://github.com/intel
+            crunchbase: https://www.crunchbase.com/organization/intel
+            enduser: true 
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/intel-corporation/
+              blog_url: https://community.intel.com/t5/Blogs/ct-p/blogs
+              tag: 
+                - hardware-provider 
+          - name: Isovalent 
+            description: Creator of Cilium, the leading eBPF-based networking, security, and observability platform for cloud-native applications
+            homepage_url: https://isovalent.com
+            logo: isovalent.svg
+            repo_url: https://github.com/cilium
+            crunchbase: https://www.crunchbase.com/organization/isovalent
+            second_path:
+              - "Security / Runtime Security"
+              - "Observability / Other"
+              - "End User / Other"
+            enduser: true
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/isovalent
+              blog_url: https://isovalent.com/blog
+              tag: 
+                - runtime-security
+                - cni 
+                - observability
+          - name: Meta
+            description: Internet infrastructure company using eBPF-based Katran as a software-defined load balancer and in its Strobelight system for low-overhead profiling across production servers
+            homepage_url: https://www.meta.com/about/company-info/
+            logo: meta.svg
+            repo_url: https://github.com/facebook
+            crunchbase: https://www.crunchbase.com/organization/facebook
+            blog_url: https://engineering.fb.com/
+            enduser: true
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/meta/
+              blog_url:
+              tag: 
+                - load-balancing 
+          - name: Middleware
+            description: Cloud observability platform with eBPF-based application monitoring
+            homepage_url: https://middleware.io
+            logo: middleware.svg
+            repo_url: https://github.com/middleware
+            crunchbase: https://www.crunchbase.com/organization/middleware-4460
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/middleware-labs/
+              blog_url: https://middleware.io/blog/
+              tag: 
+                - observability
+          - name: Netflix 
+            description: Streaming infrastructure and platform company using eBPF for real-time TCP flow logging, IP-to-workload attribution, and resource scheduling telemetry
+            homepage_url: https://netflix.com/
+            logo: netflix.svg
+            repo_url: https://github.com/netflix
+            crunchbase: https://www.crunchbase.com/organization/netflix
+            enduser: true 
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/netflix/
+              blog_url: https://netflixtechblog.com/
+              tag: 
+                - observability
+                - networking
+          - name: Nvidia
+            description: AI and computing platform using eBPF for GPU-aware observability, system profiling, and performance optimization across data center and cloud environments
+            homepage_url: https://www.nvidia.com/
+            logo: nvidia.svg
+            repo_url: https://github.com/nvidia
+            crunchbase: https://www.crunchbase.com/organization/nvidia'
+            enduser: true
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/nvidia/
+              blog_url: https://blogs.nvidia.com/
+              tag: 
+                - hardware 
+          - name: Nokia
+            description: Telecommunications and network infrastructure company using eBPF for advanced network observability, performance optimization, and real-time traffic analysis across cloud and 5G systems
+            homepage_url: https://www.nokia.com/
+            logo: nokia
+            repo_url: https://github.com/nokia
+            crunchbase: https://www.crunchbase.com/organization/nokia
+            enduser: true
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/nokia/
+              blog_url: https://www.nokia.com/blog/
+              tag: 
+                - telco 
+          - name: PLUMgrid
+            description: DN platform leveraging eBPF to enable distributed, programmable networking, tracing, and security functions in virtualized and containerized clouds
+            homepage_url: https://www.plumgrid.com/
+            logo: plumgrid.svg
+            crunchbase: https://www.crunchbase.com/organization/plumgrid
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/plumgrid/
+              tag: 
+                - software-defined-networking
+          - name: Tencent
+            description: Cloud and internet services platform using eBPF for network observability, performance tuning, and runtime security across its cloud and gaming infrastructure
+            homepage_url: https://www.tencent.com/
+            logo: tencent.svg
+            repo_url: https://github.com/tencent
+            crunchbase: https://www.crunchbase.com/organization/tencent
+            enduser: true 
+            second_path:
+              - "End User / Other"
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/tencentglobal/
+              blog_url: https://www.tencentcloud.com/dynamic/blogs/800?lang=en&pg=
+              tag: 
+                - cloud-infrastructure-provider
+          - name: Tigera
+            description: Creator of Calico for eBPF based networking
+            homepage_url: https://www.tigera.io
+            logo: tigera.svg
+            repo_url: https://github.com/projectcalico
+            crunchbase: https://www.crunchbase.com/organization/tigera
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/tigera
+              blog_url: https://www.tigera.io/blog
+              tag: 
+                - container-network-interface
+  - name: Other 
+    subcategories: 
+      - name: Other 
+        items:
+          - name: Kerno 
+            description: Platform that autonomously writes, runs and maintains integration tests in your IDE
+            homepage_url: https://www.kerno.io/
+            logo: kerno.svg
+            repo_url: https://github.com/kernoio
+            crunchbase: https://www.crunchbase.com/organization/kerno-io
+            enduser: false 
+            extra: 
+              linkedin_url: https://www.linkedin.com/company/kernoio/
+              blog_url: https://www.kerno.io//blog
+          - name: Unvariance
+            description: Platform leveraging to detect and mitigate memory-subsystem interference ("noisy neighbors") between containers, reducing tail latency and improving utilization
+            homepage_url: https://unvariance.com
+            logo: unvariance.svg
+            repo_url: https://github.com/unvariance
+            enduser: false 
+            extra: 
+              tag: 
+  - name: End User
+    subcategories: 
+      - name: Other 
+        items:
+
+         
