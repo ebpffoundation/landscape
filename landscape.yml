@@ -1213,7 +1213,7 @@ categories:
             homepage_url: https://www.nvidia.com/
             logo: nvidia.svg
             repo_url: https://github.com/nvidia
-            crunchbase: https://www.crunchbase.com/organization/nvidia'
+            crunchbase: https://www.crunchbase.com/organization/nvidia
             enduser: true
             second_path:
               - "End User / Other"
