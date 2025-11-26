@@ -1225,7 +1225,7 @@ categories:
           - name: Nokia
             description: Telecommunications and network infrastructure company using eBPF for advanced network observability, performance optimization, and real-time traffic analysis across cloud and 5G systems
             homepage_url: https://www.nokia.com/
-            logo: nokia
+            logo: nokia.svg
             repo_url: https://github.com/nokia
             crunchbase: https://www.crunchbase.com/organization/nokia
             enduser: true
