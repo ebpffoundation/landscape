@@ -1261,7 +1261,7 @@ categories:
               tag: 
                 - cloud-infrastructure-provider
           - name: Tigera
-            description: Creator of Calico for eBPF based networking
+            description: Unified networking, network security, and observability for Kubernetes
             homepage_url: https://www.tigera.io
             logo: tigera.svg
             repo_url: https://github.com/projectcalico
