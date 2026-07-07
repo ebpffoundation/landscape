@@ -29,7 +29,7 @@ export function Footer({ className = '' }: FooterProps) {
               </span>
             </div>
             <p className="text-stone-300 text-sm max-w-md">
-              A comprehensive landscape of eBPF tools, projects, and resources.
+              A comprehensive landscape of eBPF based companies.
               Discover the ecosystem of eBPF-based solutions.
             </p>
           </div>
