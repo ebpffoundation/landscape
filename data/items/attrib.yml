@@ -6,4 +6,9 @@ website: 'https://attrb.io/'
 linkedin: 'https://www.linkedin.com/company/attrb/'
 location: 'United States'
 crunchbase: 'https://www.crunchbase.com/organization/zouz'
-funding_status: 'Private'
+funding_status: 'Acquired'
+acquired:
+  by: DoiT
+  year: 2026
+  url: https://attrb.io/blog/attribute-joins-doit/
+  amount: Undisclosed
