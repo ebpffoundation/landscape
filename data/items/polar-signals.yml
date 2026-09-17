@@ -10,4 +10,9 @@ crunchbase: 'https://www.crunchbase.com/organization/polar-signals'
 linkedin: 'https://www.linkedin.com/company/polar-signals'
 blog: 'https://www.polarsignals.com/blog'
 contact: 'hello@polarsignals.com'
-funding_status: 'Series A'
+funding_status: 'Acquired'
+acquired:
+  by: Dash0
+  year: 2024
+  url: https://www.polarsignals.com/blog/posts/2026/08/17/polar-signals-is-joining-dash0
+  amount: Undisclosed
