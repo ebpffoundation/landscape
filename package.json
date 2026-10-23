@@ -19,7 +19,7 @@
     "clsx": "^2.1.1",
     "flexsearch": "^0.8.212",
     "hugeicons-react": "^0.4.0",
-    "next": "^16.1.6",
+    "next": "^16.4.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-wrap-balancer": "^1.1.1",
@@ -40,11 +40,14 @@
   "overrides": {
     "postcss": ">=8.5.10",
     "esbuild": ">=0.28.1",
-    "sharp": ">=0.35.3"
+    "sharp": ">=0.35.5",
+    "@next/eslint-plugin-next": {
+      "fast-glob": "npm:tinyglobby@^0.2.17"
+    }
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
-    "@next/eslint-plugin-next": "^16.1.6",
+    "@next/eslint-plugin-next": "^16.4.2",
     "@tailwindcss/postcss": "^4.2.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -53,19 +56,19 @@
     "@types/node": "^25.3.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitest/coverage-v8": "^4.1.11",
-    "@vitest/ui": "^4.1.11",
+    "@vitest/coverage-v8": "^4.1.12",
+    "@vitest/ui": "^4.1.12",
     "autoprefixer": "^10.4.24",
     "baseline-browser-mapping": "^2.10.0",
     "eslint": "^9.39.3",
-    "eslint-config-next": "^16.1.6",
+    "eslint-config-next": "^16.4.2",
     "jsdom": "^28.1.0",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
     "tailwindcss": "^4.2.0",
     "tsx": "^4.22.4",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.12"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,
