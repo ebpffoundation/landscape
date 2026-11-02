@@ -72,6 +72,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                   Try Again
                 </button>
                 <button
+                  // eslint-disable-next-line @next/next/no-location-assign-relative-destination -- the global error boundary only resets on a pathname change, so a soft navigation to / from / would not recover
                   onClick={() => (window.location.href = '/')}
                   className="inline-flex items-center px-6 py-3 bg-stone-900 text-white font-semibold rounded-[34px] hover:bg-stone-800 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2"
                 >
